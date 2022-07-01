@@ -24,6 +24,6 @@ body{
     grid-template-rows: repeat(16, 1fr);
 }
 
-.row {
+.box {
     border: black 1px solid;
 }

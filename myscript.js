@@ -3,11 +3,12 @@ const container = document.querySelector('#grid-container');
 
 
 // this corresponds to the 16x16 in the #grid-container
+
 let defaultSize = 256    
 function makeSquares() {
         for (let i = 0; i < defaultSize; i++) {
             let square = document.createElement('div');
-            square.className = "row";
+            square.classList.add("box");
             container.appendChild(square);
             }                
         }
@@ -28,16 +29,23 @@ function updateSquares(num){
     let row = num;
     let squared = col * row;
 
-    container.style.setProperty('grid-template-columns', 'repeat(${squared},1fr)');
-    container.style.setProperty('grid-template-rows', 'repeat(${squared},1fr)');
-
+    removeSquares();
+    
+    // backticks are need specifically for the template literals
+    container.style.setProperty('grid-template-columns', `repeat(${col},1fr)`);
+    container.style.setProperty('grid-template-rows', `repeat(${row},1fr)`);
+    
     for(let i=0; i<squared; i++){
         let square = document.createElement('div');
-        square.className = "row";
-        container.appendChild(square)
-    }
-}      
+        square.classList.add("box");
+        container.appendChild(square);
+    } }
+// function removes the default squares so that we replace and don't add on new squares
+function removeSquares(){
+    while(container.firstChild){
+        container.firstChild.remove();
+    }}
 
-
+// LEFT OFF - ADD COLOR AND MOUSE HOVER OPTION TO THE GRID
 makeSquares();
 
