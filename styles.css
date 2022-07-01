@@ -1,0 +1,29 @@
+#header{
+    font-weight: bold;
+    font-size: 20px;
+    display: grid;
+    justify-content: center;
+}
+body{
+    background-color: white;
+    font-family: monospace;
+}
+#main-box{
+      display: inline-grid;
+}
+#left-box{
+    display: inline-grid;
+}
+#grid-container{
+    display: inline-grid;
+    height: 600px;
+    width: 600px;
+    border-style: solid;
+    border-color: gray;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+}
+
+.row {
+    border: black 1px solid;
+}
