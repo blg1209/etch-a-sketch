@@ -27,3 +27,7 @@ body{
 .box {
     border: black 1px solid;
 }
+
+.change{
+    background-color: blue;
+}

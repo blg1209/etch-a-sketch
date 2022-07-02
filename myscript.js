@@ -2,6 +2,7 @@
 const container = document.querySelector('#grid-container');
 
 
+
 // this corresponds to the 16x16 in the #grid-container
 
 let defaultSize = 256    
@@ -10,7 +11,7 @@ function makeSquares() {
             let square = document.createElement('div');
             square.classList.add("box");
             container.appendChild(square);
-            }                
+            }
         }
 
 // access the range on the sidebar when it's selected and call function that returns the value
@@ -39,6 +40,9 @@ function updateSquares(num){
         let square = document.createElement('div');
         square.classList.add("box");
         container.appendChild(square);
+
+        
+
     } }
 // function removes the default squares so that we replace and don't add on new squares
 function removeSquares(){
@@ -46,6 +50,14 @@ function removeSquares(){
         container.firstChild.remove();
     }}
 
-// LEFT OFF - ADD COLOR AND MOUSE HOVER OPTION TO THE GRID
-makeSquares();
 
+
+makeSquares();
+// we add iterate after squares have been made. Since this returns array like object we have
+// to iterate over each item
+let box = document.querySelectorAll(".box");
+box.forEach((box)=>{
+    box.addEventListener('mouseover',(event)=>{ 
+        box.classList.add('change');
+     });
+   });
