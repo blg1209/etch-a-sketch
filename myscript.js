@@ -40,24 +40,38 @@ function updateSquares(num){
         let square = document.createElement('div');
         square.classList.add("box");
         container.appendChild(square);
-
-        
-
-    } }
+    } 
+    // event listener after re-size that listens for click and calls mouseOverListner()
+    let box = document.querySelectorAll(".box");
+    box.forEach((box)=>{
+        box.addEventListener('click',(event)=>{ 
+            box.classList.add('change');
+            mouseOverListener();
+         });
+       });
+}
 // function removes the default squares so that we replace and don't add on new squares
 function removeSquares(){
     while(container.firstChild){
         container.firstChild.remove();
     }}
+// mouse over that changes the color and is called when the user clicks on a square
+function mouseOverListener(){
+    let box = document.querySelectorAll('.box');
+    box.forEach((box)=>{
+        box.addEventListener('mouseover',(event)=>{ 
+            box.classList.add('change');
+        });
+        });
+    }
 
-
-
+// Creates Squares
 makeSquares();
-// we add iterate after squares have been made. Since this returns array like object we have
-// to iterate over each item
+// has to be defined after squares are created. Then iterate over array like object and then call listener()
 let box = document.querySelectorAll(".box");
 box.forEach((box)=>{
-    box.addEventListener('mouseover',(event)=>{ 
+    box.addEventListener('click',(event)=>{ 
         box.classList.add('change');
+        mouseOverListener();
      });
-   });
+    });
